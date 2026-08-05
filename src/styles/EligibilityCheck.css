@@ -1,0 +1,221 @@
+.eligibility-check h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #002140;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.error {
+  background: #ffebee;
+  border: 2px solid #f44336;
+  color: #c62828;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.eligibility-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.eligibility-status {
+  border-radius: 8px;
+  padding: 1.5rem;
+  border-left: 4px solid;
+}
+
+.eligibility-status h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.eligibility-status.eligible {
+  background: #e8f5e9;
+  border-left-color: #4CAF50;
+  color: #2e7d32;
+}
+
+.eligibility-status.eligible h3 {
+  color: #2e7d32;
+}
+
+.eligibility-status.ineligible {
+  background: #ffebee;
+  border-left-color: #f44336;
+  color: #c62828;
+}
+
+.eligibility-status.ineligible h3 {
+  color: #c62828;
+}
+
+.ticket-info,
+.allowed-changes,
+.fare-restrictions,
+.refund-option {
+  background: #f9fafb;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.ticket-info h3,
+.allowed-changes h3,
+.fare-restrictions h3,
+.refund-option h3 {
+  color: #002140;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.info-item .label {
+  font-size: 0.85rem;
+  color: #999;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.info-item .value {
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.info-item .penalty {
+  color: #f44336;
+  font-weight: 700;
+}
+
+.changes-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.change-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-weight: 500;
+  border: 1px solid #e0e0e0;
+}
+
+.change-item.allowed {
+  background: #e8f5e9;
+  border-color: #4CAF50;
+  color: #2e7d32;
+}
+
+.change-item.blocked {
+  background: #ffebee;
+  border-color: #f44336;
+  color: #c62828;
+}
+
+.change-item .icon {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.restrictions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.restrictions-list li {
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  position: relative;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.restrictions-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #002140;
+  font-weight: 700;
+}
+
+.refund-option {
+  background: #e3f2fd;
+  border: 1px solid #2196F3;
+  border-radius: 8px;
+}
+
+.refund-info {
+  color: #1565c0;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.proceed-btn {
+  padding: 0.75rem 2rem;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.proceed-btn:hover {
+  background: #45a049;
+}
+
+.issues-list {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.issue {
+  margin: 0;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  position: relative;
+  color: #c62828;
+  font-size: 0.95rem;
+}
+
+.issue::before {
+  content: '⚠';
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}

@@ -15,7 +15,7 @@ export const mockPNRs = {
           arrival: '14:45',
           flightNumber: 'CM100',
           aircraft: '737',
-          cabin: 'ECONOMY',
+          cabin: 'Y',
           seatNumber: '12A'
         },
         {
@@ -27,7 +27,7 @@ export const mockPNRs = {
           arrival: '20:30',
           flightNumber: 'CM101',
           aircraft: '737',
-          cabin: 'ECONOMY',
+          cabin: 'Y',
           seatNumber: '12A'
         }
       ],

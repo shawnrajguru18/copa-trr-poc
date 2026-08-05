@@ -1,0 +1,233 @@
+.flight-selection h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #002140;
+}
+
+.original-itinerary {
+  background: #f0f4f8;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border-left: 4px solid #002140;
+}
+
+.original-itinerary h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.segments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.segment-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.segment-header {
+  margin-bottom: 0.5rem;
+  color: #002140;
+}
+
+.segment-details {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.new-flights-selection {
+  margin-bottom: 2rem;
+}
+
+.new-flights-selection h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.flight-selector {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.selector-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.selector-header h4 {
+  margin: 0;
+  color: #333;
+}
+
+.search-btn {
+  padding: 0.5rem 1rem;
+  background: #002140;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.search-btn:hover {
+  background: #003366;
+}
+
+.search-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.selected-flight {
+  background: #e8f5e9;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  border: 1px solid #4CAF50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selected-flight .fare {
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+.flight-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.flight-option {
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.flight-option:hover {
+  border-color: #002140;
+  background: #f0f4f8;
+  box-shadow: 0 2px 8px rgba(0, 33, 64, 0.1);
+}
+
+.flight-option.selected {
+  background: #e8f5e9;
+  border-color: #4CAF50;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
+}
+
+.flight-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.flight-number {
+  font-weight: 700;
+  color: #002140;
+  font-size: 1.1rem;
+}
+
+.date-badge {
+  background: #e3f2fd;
+  color: #1565c0;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.flight-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.flight-details-grid .detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detail .label {
+  font-size: 0.8rem;
+  color: #999;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.detail .value {
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.detail .seats {
+  color: #4CAF50;
+  font-weight: 700;
+}
+
+.flight-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.flight-option .fare {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #002140;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.proceed-btn {
+  padding: 0.75rem 2rem;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.proceed-btn:hover {
+  background: #45a049;
+}
+
+.proceed-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}

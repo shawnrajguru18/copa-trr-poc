@@ -1,0 +1,407 @@
+.smart-flight-selection h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #002140;
+}
+
+.shopper-intro {
+  background: #e3f2fd;
+  border-left: 4px solid #2196F3;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  color: #1565c0;
+  font-size: 0.95rem;
+}
+
+.original-itinerary {
+  background: #f0f4f8;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border-left: 4px solid #002140;
+}
+
+.original-itinerary h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.segments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.segment-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.segment-header {
+  margin-bottom: 0.5rem;
+  color: #002140;
+  font-weight: 600;
+}
+
+.segment-details {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.flight-selector-section {
+  margin-bottom: 2rem;
+}
+
+.flight-selector-section h3 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.flight-selector-container {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.selector-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.selector-header h4 {
+  margin: 0;
+  color: #333;
+}
+
+.selector-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.search-btn {
+  padding: 0.5rem 1rem;
+  background: #002140;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.search-btn:hover {
+  background: #003366;
+}
+
+.search-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.selection-badge {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.selected-flight {
+  background: #e8f5e9;
+  border: 1px solid #4CAF50;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selected-flight .fare {
+  font-weight: 700;
+  color: #2e7d32;
+}
+
+.calendar-view {
+  margin-top: 1rem;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.calendar-header h5 {
+  margin: 0;
+  color: #002140;
+  font-weight: 600;
+}
+
+.smart-pick {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #856404;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.smart-pick .reason {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.calendar-dates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.calendar-date-group {
+  background: #f9fafb;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.date-header {
+  background: #002140;
+  color: white;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.flights-for-date {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.flight-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.flight-card:hover {
+  border-color: #2196F3;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.15);
+}
+
+.flight-card.selected {
+  background: #e8f5e9;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.flight-card.top-pick {
+  border: 2px solid #ffc107;
+  background: #fffbf0;
+}
+
+.flight-card.top-pick.selected {
+  background: #e8f5e9;
+  border-color: #4CAF50;
+}
+
+.badge-top-pick {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: #ffc107;
+  color: #856404;
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 0.7rem;
+}
+
+.badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: #e3f2fd;
+  color: #1565c0;
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 0.7rem;
+}
+
+.flight-number-badge {
+  font-weight: 700;
+  color: white;
+  background: #002140;
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.flight-main {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.flight-main .times {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.flight-details {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.flight-details .aircraft,
+.flight-details .seats {
+  display: flex;
+  align-items: center;
+}
+
+.flight-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.flight-footer .fare {
+  font-weight: 700;
+  color: #002140;
+  font-size: 0.95rem;
+}
+
+.recommendation-reason {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: flex-end;
+}
+
+.reason-tag {
+  background: #e3f2fd;
+  color: #1565c0;
+  padding: 0.15rem 0.35rem;
+  border-radius: 2px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.alternative-recommendations {
+  background: #f9fafb;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.alternative-recommendations h5 {
+  margin: 0 0 0.75rem 0;
+  color: #002140;
+  font-weight: 600;
+}
+
+.recommendations-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.alt-option {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.alt-option .label {
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.alt-option .flight {
+  font-weight: 700;
+  color: #002140;
+}
+
+.alt-option .fare,
+.alt-option .time,
+.alt-option .seats {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.proceed-btn {
+  padding: 0.75rem 2rem;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.proceed-btn:hover {
+  background: #45a049;
+}
+
+.proceed-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
