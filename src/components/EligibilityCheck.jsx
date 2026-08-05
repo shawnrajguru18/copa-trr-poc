@@ -27,7 +27,7 @@ export default function EligibilityCheck({ originalPNR, onProceed, onError }) {
 
   return (
     <div className="eligibility-check">
-      <h2>Step 1.5: Verify Ticket Eligibility (ATPCo Category 31)</h2>
+      <h2>Step 1.5: Verify Ticket Eligibility (ATPCo Category {eligibility.atpcoCategory}: {eligibility.categoryName})</h2>
 
       {eligibility.isEligible ? (
         <div className="eligibility-content">
@@ -45,7 +45,7 @@ export default function EligibilityCheck({ originalPNR, onProceed, onError }) {
               </div>
               <div className="info-item">
                 <span className="label">ATPCo Category:</span>
-                <span className="value">{eligibility.atpcoCategory}</span>
+                <span className="value">{eligibility.atpcoCategory} - {eligibility.categoryName}</span>
               </div>
               <div className="info-item">
                 <span className="label">Change Penalty:</span>
@@ -89,14 +89,12 @@ export default function EligibilityCheck({ originalPNR, onProceed, onError }) {
             </ul>
           </div>
 
-          {eligibility.refundEligible && (
-            <div className="refund-option">
-              <h3>Alternative Option</h3>
-              <p className="refund-info">
-                ℹ️ This ticket is also eligible for a voluntary refund if the passenger prefers to cancel rather than rebook.
-              </p>
-            </div>
-          )}
+          <div className={`refund-option ${!eligibility.refundEligible ? 'not-eligible' : ''}`}>
+            <h3>Refund Options</h3>
+            <p className="refund-info">
+              {eligibility.refundEligible ? '✓' : '✕'} {eligibility.refundDescription}
+            </p>
+          </div>
 
           <div className="action-buttons">
             <button onClick={onProceed} className="proceed-btn">

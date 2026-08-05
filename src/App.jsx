@@ -71,9 +71,6 @@ function App() {
           <h1>Copa Airlines - Ticket Reissue (TRR) Agent Assistant</h1>
           <p className="subtitle">Automated PNR Pricing & Netting Engine</p>
         </div>
-        <div className="copa-branding">
-          <img src="/copa2.jpg" alt="Copa Airlines" className="airline-logo" />
-        </div>
       </header>
 
       <div className="app-container">

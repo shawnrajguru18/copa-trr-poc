@@ -169,11 +169,20 @@
   border-radius: 8px;
 }
 
+.refund-option.not-eligible {
+  background: #ffebee;
+  border: 1px solid #f44336;
+}
+
 .refund-info {
   color: #1565c0;
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.5;
+}
+
+.refund-option.not-eligible .refund-info {
+  color: #c62828;
 }
 
 .action-buttons {
