@@ -7,16 +7,16 @@ export const analyzeRefundOptions = (originalPNR, calculation) => {
   // Calculate refund amount based on ATPCO category
   const refundScenarios = calculateRefundScenarios(originalPNR, atpcoCategory);
 
-  // Calculate reissue cost
-  const reissueCost = calculation.amountDue;
+  // Calculate reissue cost (ensure it's a number)
+  const reissueCost = parseFloat(calculation.amountDue);
 
   // Analyze which option is better
   const analysis = {
     originalTicketValue: originalTotal,
     reissueOption: {
-      newFare: calculation.newQuote.baseFare,
-      changeFee: calculation.changeFee,
-      taxAdjustment: calculation.taxAdjustment,
+      newFare: parseFloat(calculation.newQuote.baseFare),
+      changeFee: parseFloat(calculation.netting.changeFee),
+      taxAdjustment: parseFloat(calculation.netting.taxAdjustment),
       amountDue: reissueCost,
       description: `Rebook on new flight with $${reissueCost.toFixed(2)} due`
     },
