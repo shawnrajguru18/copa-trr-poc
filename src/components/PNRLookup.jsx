@@ -33,7 +33,7 @@ export default function PNRLookup({ onPNRRetrieved, onError }) {
             value={pnrCode}
             onChange={(e) => setPnrCode(e.target.value.toUpperCase())}
             placeholder="Enter PNR code"
-            maxLength="6"
+            maxLength="8"
             disabled={loading}
           />
         </div>
@@ -41,7 +41,7 @@ export default function PNRLookup({ onPNRRetrieved, onError }) {
           {loading ? 'Retrieving...' : 'Retrieve PNR'}
         </button>
       </form>
-      <p className="hint">Try: CM123456</p>
+      <p className="hint">Try: CM123456, CM234567, CM345678, or CM456789</p>
     </div>
   );
 }
