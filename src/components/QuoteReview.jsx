@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { calculateNewQuote, validateNetting } from '../services/nettingEngine';
+import { analyzeRefundOptions, formatRefundAnalysisForDisplay } from '../services/refundAnalysisEngine';
 import '../styles/QuoteReview.css';
 
 export default function QuoteReview({ originalPNR, newFlights, onApprove, onRevise }) {
   const [calculation, setCalculation] = useState(null);
   const [validation, setValidation] = useState(null);
+  const [refundAnalysis, setRefundAnalysis] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [editedAmountDue, setEditedAmountDue] = useState('');
@@ -17,6 +19,11 @@ export default function QuoteReview({ originalPNR, newFlights, onApprove, onRevi
 
     const val = validateNetting(calc);
     setValidation(val);
+
+    const refundAnalysisResult = analyzeRefundOptions(originalPNR, calc);
+    const formattedAnalysis = formatRefundAnalysisForDisplay(refundAnalysisResult);
+    setRefundAnalysis(formattedAnalysis);
+
     setLoading(false);
   }, [originalPNR, newFlights]);
 
@@ -138,6 +145,56 @@ export default function QuoteReview({ originalPNR, newFlights, onApprove, onRevi
           </div>
         </div>
       </div>
+
+      {refundAnalysis && (
+        <div className="refund-analysis">
+          <h3>💡 Intelligent Refund vs Reissue Analysis</h3>
+
+          <div className={`recommendation-card ${refundAnalysis.recommendation.recommendation.toLowerCase()}`}>
+            <div className="recommendation-header">
+              <span className="icon">{refundAnalysis.recommendation.icon}</span>
+              <span className="recommendation-text">{refundAnalysis.recommendation.recommendation.replace(/_/g, ' ')}</span>
+            </div>
+            <p className="recommendation-reasoning">{refundAnalysis.recommendation.reasoning}</p>
+          </div>
+
+          <div className="refund-options-grid">
+            <div className="refund-option-card reissue">
+              <h4>Reissue Option</h4>
+              <div className="option-detail">
+                <span className="label">Cost:</span>
+                <span className="value">${refundAnalysis.reissueOption.amountDue.toFixed(2)}</span>
+              </div>
+              <p className="option-description">{refundAnalysis.reissueOption.description}</p>
+            </div>
+
+            {Object.entries(refundAnalysis.refundOptions).map(([refundType, scenario]) => (
+              scenario.eligible && (
+                <div key={refundType} className="refund-option-card refund">
+                  <h4>{refundType.replace(/_/g, ' ')}</h4>
+                  <div className="option-detail">
+                    <span className="label">Amount:</span>
+                    <span className="value">${scenario.amount.toFixed(2)}</span>
+                  </div>
+                  <p className="option-description">{scenario.description}</p>
+                  {scenario.notes && <p className="option-notes">{scenario.notes}</p>}
+                </div>
+              )
+            ))}
+          </div>
+
+          {refundAnalysis.edgeCases.length > 0 && (
+            <div className="edge-cases">
+              <h4>⚠️ Edge Cases & Alerts</h4>
+              {refundAnalysis.edgeCases.map((flag, idx) => (
+                <div key={idx} className={`edge-case ${flag.severity}`}>
+                  <strong>{flag.type.replace(/_/g, ' ')}:</strong> {flag.message}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
 
       <div className="financial-summary">
         <h3>Financial Summary {!isEditing && '(Click "Edit" to override)'}</h3>
