@@ -121,14 +121,16 @@ const generateRefundRecommendation = (refundScenarios, reissueCost, atpcoCategor
     return {
       recommendation: 'REISSUE',
       reasoning: 'No refund options available - recommend rebooking',
+      refundAmount: 0,
+      reissueCost: reissueCost,
       savings: 0,
       savingsMessage: 'No refund alternative available'
     };
   }
 
   const [refundType, refundData] = recommendedRefund;
-  const refundAmount = refundData.amount;
-  const savings = refundAmount - reissueCost;
+  const refundAmount = parseFloat(refundData.amount);
+  const savings = refundAmount - parseFloat(reissueCost);
 
   let recommendation = 'REISSUE';
   let reasoning = '';
@@ -151,19 +153,21 @@ const generateRefundRecommendation = (refundScenarios, reissueCost, atpcoCategor
     recommendation,
     reasoning,
     refundType,
-    refundAmount,
-    reissueCost,
-    savings,
+    refundAmount: parseFloat(refundAmount),
+    reissueCost: parseFloat(reissueCost),
+    savings: parseFloat(savings),
     savingsMessage: savings > 0
-      ? `Refund saves $${savings.toFixed(2)}`
-      : `Reissue is $${Math.abs(savings).toFixed(2)} cheaper`
+      ? `Refund saves $${parseFloat(savings).toFixed(2)}`
+      : `Reissue is $${Math.abs(parseFloat(savings)).toFixed(2)} cheaper`
   };
 };
 
 const flagEdgeCases = (pnr, calculation, refundScenarios) => {
   const flags = [];
   const originalFare = pnr.originalBooking.fareDetails.base;
-  const newFare = calculation.newQuote.baseFare;
+  const newFare = parseFloat(calculation.newQuote.baseFare);
+  const amountDue = parseFloat(calculation.amountDue);
+  const changeFee = parseFloat(calculation.netting.changeFee);
 
   // Flag if new flight is significantly cheaper
   if (newFare < originalFare * 0.8) {
@@ -175,11 +179,11 @@ const flagEdgeCases = (pnr, calculation, refundScenarios) => {
   }
 
   // Flag if new flight is significantly more expensive
-  if (newFare > originalFare * 1.3 && calculation.amountDue > 200) {
+  if (newFare > originalFare * 1.3 && amountDue > 200) {
     flags.push({
       type: 'EXPENSIVE_REBOOKING',
       severity: 'high',
-      message: `Rebooking costs $${calculation.amountDue.toFixed(2)} - consider refund alternative`
+      message: `Rebooking costs $${amountDue.toFixed(2)} - consider refund alternative`
     });
   }
 
@@ -193,11 +197,11 @@ const flagEdgeCases = (pnr, calculation, refundScenarios) => {
   }
 
   // Flag high change fees
-  if (calculation.changeFee > 150) {
+  if (changeFee > 150) {
     flags.push({
       type: 'HIGH_CHANGE_FEE',
       severity: 'medium',
-      message: `Change fee of $${calculation.changeFee.toFixed(2)} is substantial - review with supervisor`
+      message: `Change fee of $${changeFee.toFixed(2)} is substantial - review with supervisor`
     });
   }
 
