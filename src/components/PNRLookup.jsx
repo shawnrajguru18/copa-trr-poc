@@ -41,7 +41,6 @@ export default function PNRLookup({ onPNRRetrieved, onError }) {
           {loading ? 'Retrieving...' : 'Retrieve PNR'}
         </button>
       </form>
-      <p className="hint">Try: CM123456, CM234567, CM345678, or CM456789</p>
     </div>
   );
 }
